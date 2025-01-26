@@ -8,7 +8,7 @@
                     <h2><a href="#">Hall</a></h2>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="menu">
                     <ul>
                         <li class="active"><a href="#">Home</a></li>
@@ -18,9 +18,26 @@
                         <li><a href="#">photography</a></li>
                     </ul>
                 </div>
-
-                <img class="fernsehturm" src="{% static 'img/fernsehturm-berlin.svg' %}" alt="fernsehturm" width="45" height="45">
+            </div>
+            <div class="col-md-2">
+                <div class="user-log">
+                    {% if request.user.is_authenticated %}
+                      Hi, {{ user.username }}
+                      <a href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                    {% endif %}
+                    
+                    <img src="{% static 'img/fernsehturm-berlin.svg' %}" alt="fernsehturm" width="45" height="45">
+                </div>
             </div>
         </div>
     </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger {% else %}{{ message.tags }}{% endif %} no-border-radius" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
 </header>
