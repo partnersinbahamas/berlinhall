@@ -133,5 +133,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'web/static',
     # "/var/www/static/", # needs only for production
-
 ]
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# to buid url to media folder
+MEDIA_URL = '/media/'
