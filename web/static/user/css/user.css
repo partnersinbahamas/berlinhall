@@ -1,0 +1,33 @@
+.form-field {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    form {
+        width: 100%;
+        max-width: 600px;
+
+        .form-field-b {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}
+
+button[type="submit"] {
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    color: #fff;
+    font-weight: bold;
+    background-color: var(--primary);
+}
+
+.user-link {
+    color: var(--primary);
+    font-weight: 600;
+}

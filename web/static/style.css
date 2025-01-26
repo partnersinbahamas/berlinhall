@@ -33,6 +33,19 @@
   --primary: #ff0000;
 }
 
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    .container {
+        border-bottom: 1px solid var(--primary);
+    }
+}
+
 .wrapper header.header .logo {
     display: flex;
     align-items: center;
@@ -531,7 +544,7 @@ section.blog-post-area h4 span.author-name {
 }
 
 
-}
+
 .single-blog-area .commententries .author-name h5 a {
     font-family: Geometria;
     font-size: 21px;
@@ -766,8 +779,18 @@ section.blog-post-area h4 span.author-name {
     width: 100%;
 }
 
-.fernsehturm {
-    position: absolute;
-    right: 10px;
-    top: 10px;
+.user-log {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 70px;
+
+    a {
+        color: var(--primary)
+    }
 }
