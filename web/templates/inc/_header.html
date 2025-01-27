@@ -28,7 +28,14 @@
                         <a href="{% url 'login' %}">Login</a>
                     {% endif %}
                     
-                    <img src="{% static 'img/fernsehturm-berlin.svg' %}" alt="fernsehturm" width="45" height="45">
+                    {% if request.user.is_authenticated and request.user.is_superuser %}
+                    <a href="/admin">
+                      <img src="{% static 'img/fernsehturm-berlin.svg' %}" alt="fernsehturm" width="45" height="45">
+                    </a>
+
+                    {% else %}
+                        <img src="{% static 'img/fernsehturm-berlin.svg' %}" alt="fernsehturm" width="45" height="45">
+                    {% endif %}
                 </div>
             </div>
         </div>
