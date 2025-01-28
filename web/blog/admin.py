@@ -17,22 +17,20 @@ class CategoryAdmin(admin.ModelAdmin):
     # generate slug field using model name
     prepopulated_fields = {"slug": ["name"]}
 
-    fields = ('id', 'slug', 'name')
-    list_display = ('id', 'slug', 'name')
+    fields = ('name', 'slug')
+    list_display = ('id', 'name', 'slug')
     list_display_links = ('id', 'slug')
-    readonly_fields = ('id', 'slug')
-    search_fields = ('id', 'slug', 'name')
-    list_filter = ('slug', 'name')
+    search_fields = ('id', 'name', 'slug')
+    list_filter = ('id', 'slug', 'name')
 
 class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ["name"]}
 
-    fields = ('id', 'slug', 'name')
-    list_display = ('id', 'slug', 'name')
+    fields = ('name', 'slug')
+    list_display = ('id', 'name', 'slug')
     list_display_links = ('id', 'slug')
-    readonly_fields = ('id', 'slug')
-    search_fields = ('id', 'slug', 'name')
-    list_filter = ('slug', 'name')
+    search_fields = ('id', 'name', 'slug')
+    list_filter = ('id', 'slug', 'name')
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
