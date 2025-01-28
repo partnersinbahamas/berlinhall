@@ -1,0 +1,10 @@
+{% load cache %}
+
+{% cache 60 categories %}
+<ul>
+    {% for category in categories %}
+        <!-- <li class="active"><a href="#">Home</a></li> -->
+        <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endcache %}
