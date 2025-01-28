@@ -12,7 +12,7 @@ class Category(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse_lazy('categories', kwargs={ 'slug': self['slug'] })
+        return reverse_lazy('category', kwargs={ 'slug': self.slug })
     
     class Meta:
         verbose_name = 'Category'
