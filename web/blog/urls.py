@@ -1,7 +1,9 @@
 from django.urls import path
-from .views import blog_home, with_categories
+from .views import blog_home, with_categories, Home
 
 urlpatterns = [
-    path('', blog_home, name="home"),
-    path('category/<str:slug>', with_categories, name="category")
-]
+    path('', Home.as_view(), name="home"),
+    path('category/<str:slug>', with_categories, name="category"),
+    # temporary url
+    path('posts/<str:slug>', Home.as_view(), name="posts")
+] 
