@@ -17,6 +17,18 @@ $(document).ready(function () {
 //        "<i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>",
 //        "<i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>"],
 //    });
+
+    $('.menu a').each(function() {
+        let location = window.location.protocol +'//' +
+        window.location.host +
+        window.location.pathname
+
+        let link = this.href
+
+        if(location === link) {
+            $(this).parent().addClass('active')
+        }
+    })
      var $grid = $('.grid').isotope({
 //        itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
