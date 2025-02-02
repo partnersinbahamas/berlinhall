@@ -107,7 +107,8 @@
 }
 
 .wrapper section.bg-text-area .bg-text {
-    background-image: url(img/bg-iamges.jpg);
+    margin-top: 30px;
+    background-image: url(img/Berlin-U.jpg);
     background-size: 100% 100%;
     padding: 205px 280px;
 }
@@ -195,15 +196,16 @@ section.blog-post-area .big-text h4::before {
 section.blog-post-area .single-post {
     padding-right: 20px;
     margin: 100px 0px 0px;
+
+    a {
+        font-family: Geometria;
+        font-weight: 400;
+        font-size: 15px;
+        color: #061e37;
+        text-decoration: none;
+    }
 }
 
-section.blog-post-area h4 span {
-    font-family: Geometria;
-    font-weight: 400;
-    font-size: 15px;
-    color: #061e37;
-    text-decoration: none;
-}
 
 section.blog-post-area .big-text h4 span.author {
     float: right
@@ -269,6 +271,12 @@ section.blog-post-area h4 span.author-name {
     margin: 0;
     padding: 0;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
 }
 
 .blog-post-area .pegination .nav-links .page-numbers {
@@ -285,6 +293,10 @@ section.blog-post-area h4 span.author-name {
     margin-right: 5px;
     text-align: center;
     width: 45px;
+}
+
+.arrow {
+  border: 0px solid #448aff;
 }
 
 .blog-post-area .blog-post-area-style {

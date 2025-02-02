@@ -271,6 +271,12 @@ section.blog-post-area h4 span.author-name {
     margin: 0;
     padding: 0;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
 }
 
 .blog-post-area .pegination .nav-links .page-numbers {
@@ -287,6 +293,13 @@ section.blog-post-area h4 span.author-name {
     margin-right: 5px;
     text-align: center;
     width: 45px;
+}
+
+.blog-post-area .pegination .nav-links .arrow {
+  border: 0px solid #448aff;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
 }
 
 .blog-post-area .blog-post-area-style {

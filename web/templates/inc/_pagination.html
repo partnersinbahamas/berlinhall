@@ -1,0 +1,25 @@
+{% load static %}
+
+{% if page_obj.has_other_pages %}
+    <ul class="nav-links">
+        {% if page_obj.has_previous %}
+        <li>
+            <a class="page-numbers arrow" href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </li>
+        {% endif %}
+
+        {% for page in page_obj.paginator.page_range %}
+            {% if page > page_obj.number|add:-3 and page_obj.number|add:3 > page %}
+                <li>
+                    <a class="page-numbers {% if page_obj.number == page%}current{% endif %}" href="?page={{page}}">{{ page }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li>
+            <a class="page-numbers arrow" href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+        </li>
+        {% endif %}
+    </ul>
+{% endif %}
