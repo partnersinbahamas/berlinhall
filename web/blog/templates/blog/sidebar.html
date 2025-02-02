@@ -1,0 +1,60 @@
+{% load static %}
+
+<div class="col-md-4">
+    <div class="button-group filters-button-group">
+        <button data-filter=".recent" class="button is-checked">Recent</button>
+        <button data-filter=".popular" class="button">popular</button>
+        <button data-filter=".users" class="button">Users</button>
+    </div>
+
+    <div class="grid" style="position: relative; height: 684px;">
+        {% for post in posts %}
+        <div class="portfolio-item recent" style="position: absolute; left: 0px; top: 0px;">
+            <img src="{{ post.image.url }}" alt="{{ post.title }} photo">
+            <div class="portfolio-text">
+                <h5><a href="#">{{ post.title }}</a></h5>
+                <p>By {{ post.author.username }} <span>|</span>{{ post.updated_at|date:"d F Y" }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="sidebar-ads">
+        <img src="{% static 'img/sidebar-ads.jpg' %}" alt="">
+        <p>Place For Your <br> Ad Banner</p>
+    </div>
+    <div class="tags">
+        <h2 class="sidebar-title">Tags</h2>
+        <p><a href="#">Adventure</a></p>
+        <p><a href="#">Animals</a></p>
+        <p><a href="#">Asia</a></p>
+        <p><a href="#">Beauty</a></p>
+        <p><a href="#">Canada</a></p>
+        <p><a href="#">Celebration</a></p>
+        <p><a href="#">City</a></p>
+        <p><a href="#">Coffee</a></p>
+        <p><a href="#">Constructions</a></p>
+        <p><a href="#">Europe</a></p>
+        <p><a href="#">Adventure</a></p>
+        <p><a href="#">Animals</a></p>
+        <p><a href="#">Asia</a></p>
+        <p><a href="#">Beauty</a></p>
+        <p><a href="#">Canada</a></p>
+        <p><a href="#">Celebration</a></p>
+        <p><a href="#">City</a></p>
+        <p><a href="#">Coffee</a></p>
+        <p><a href="#">Constructions</a></p>
+        <p><a href="#">Europe</a></p>
+        <p><a href="#">Adventure</a></p>
+        <p><a href="#">Animals</a></p>
+        <p><a href="#">Asia</a></p>
+        <p><a href="#">Beauty</a></p>
+        <p><a href="#">Canada</a></p>
+    </div>
+    <div class="newsletter">
+        <h2 class="sidebar-title">Subscribe To oUR nEWSLETTER</h2>
+        <form action="#" method="post">
+            <input type="email" name="" id="" placeholder="Email">
+            <input type="submit" value="Subscribe">
+        </form>
+    </div>
+</div>
