@@ -37,12 +37,11 @@ class PostAdmin(admin.ModelAdmin):
     save_on_top = True
     prepopulated_fields = {"slug": ["title"]}
 
-    fields = ('slug', 'title', 'content', 'author', 'category', 'tags', 'created_at', 'updated_at', 'render_image', 'views')
     list_display = ('id', 'slug', 'author', 'category', 'created_at', 'updated_at', 'render_image', 'views')
     list_display_links = ('id', 'slug', 'author')
-    readonly_fields = ('created_at', 'updated_at', 'views', 'render_image')
+    readonly_fields = ('created_at', 'updated_at', 'views')
     search_fields = ('title', 'content', 'slug')
-    list_filter = ('title', 'author', 'category', 'created_at', 'updated_at', 'views')
+    list_filter = ('title', 'author', 'category', 'created_at', 'updated_at', 'views') 
 
     def render_image(self, obj):
         if obj.image:
