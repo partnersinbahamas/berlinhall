@@ -13,3 +13,12 @@ def show_categories():
 def get_latest_post():
     return Post.objects.latest('updated_at')
 
+@register.simple_tag()
+def get_latest_category_post(category_slug):
+
+    return Post.objects.filter(category__slug=category_slug).latest('updated_at')
+
+@register.simple_tag()
+def posts_by_category(category_slug):
+    return Post.objects.filter(category__slug=category_slug)
+

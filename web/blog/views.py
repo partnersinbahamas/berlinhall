@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.db.models.query import QuerySet
 from django.views.generic import ListView
-from .templatetags.blog_tags import get_latest_post
+from .templatetags.blog_tags import get_latest_post, get_latest_category_post, posts_by_category
 from .models import Post
 
 # Create your views here.
@@ -19,6 +19,18 @@ class Home(ListView):
         context['tab_title'] = 'Home'
         context['attached_post'] = get_latest_post()
         return context
+    
 
-def with_categories(request, slug):
-    return render(request, 'blog/blog.html')
+class PostCategories(ListView):
+    model = Post
+    template_name = 'blog/blog.html'
+    context_object_name = 'posts'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['attached_post'] = get_latest_category_post(category_slug=self.kwargs['slug'])
+
+        return context
+    
+    def get_queryset(self):
+        return posts_by_category(category_slug=self.kwargs['slug']).select_related('category')
