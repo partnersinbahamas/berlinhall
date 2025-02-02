@@ -26,16 +26,17 @@
                 <div class="blog-post-area-style">
                         <div class="col-md-12">
                             <div class="single-post-big">
-                                <div class="big-image">
-                                    <img src="{% static 'img/post-image1.jpg' %}" alt="">
-                                </div>
-                                <div class="big-text">
-                                    <h3><a href="#">Post Title Goes Here.</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                                    <h4><span class="date">25 February 2017</span><span class="author">Posted By: <span class="author-name">Kabbo Liate</span></span>
-                                    </h4>
-                                </div>
+                                <a href="{{ attached_post.get_absolute_url }}">
+                                    <div class="big-image">
+                                        <img src="{{ attached_post.image.url }}" alt="{{ attached_post.title }} photo">
+                                    </div>
+                                    <div class="big-text">
+                                        <h3>{{ attached_post.title }}</h3>
+                                        <p>{{ attached_post.content|safe|truncatewords_html:50 }}</p>
+                                        <h4><span class="date">{{ attached_post.updated_at|date:"d F Y" }}</span><span class="author">Posted By: <span class="author-name">{{ attached_post.author.username }}</span></span>
+                                        </h4>
+                                    </div>
+                                </a>
                             </div>
                         </div>
 

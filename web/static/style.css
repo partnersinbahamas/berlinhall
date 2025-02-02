@@ -142,6 +142,7 @@ section.blog-post-area {
 section.blog-post-area .big-image {
     float: left;
     width: 50%;
+    height: 30%;
     padding-right: 35px;
 }
 
@@ -206,6 +207,15 @@ section.blog-post-area .single-post {
     }
 }
 
+section.blog-post-area .single-post-big {
+    a {
+        font-family: Geometria;
+        font-weight: 400;
+        font-size: 15px;
+        color: #061e37;
+        text-decoration: none;
+    }
+}
 
 section.blog-post-area .big-text h4 span.author {
     float: right
@@ -295,8 +305,11 @@ section.blog-post-area h4 span.author-name {
     width: 45px;
 }
 
-.arrow {
+.blog-post-area .pegination .nav-links .arrow {
   border: 0px solid #448aff;
+  height: 30px;
+  width: 30px;
+  line-height: 30px;
 }
 
 .blog-post-area .blog-post-area-style {
