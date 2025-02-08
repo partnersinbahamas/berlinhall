@@ -1,0 +1,13 @@
+.single_head {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    h2 {
+        margin-bottom: 0;
+    }
+}
+
+.single_views {
+    font-weight: 500;
+}
