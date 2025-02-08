@@ -26,3 +26,11 @@ def posts_by_category(category_slug):
 def get_all_tags():
     return Tag.objects.all()
 
+@register.simple_tag()
+def get_post_by_slug(post_slug):
+    return Post.objects.get(slug=post_slug)
+
+@register.simple_tag()
+def get_all_posts():
+    return Post.objects.all()
+
