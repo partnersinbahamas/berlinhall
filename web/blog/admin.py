@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib import admin
-from .models import Category, Tag, Post
+from .models import Category, Tag, Post, Comment
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django.utils.safestring import mark_safe
 
@@ -51,6 +51,15 @@ class PostAdmin(admin.ModelAdmin):
     # to see right name in admin instead of 'render image'
     render_image.short_description = "Image"
 
+class CommentAdmin(admin.ModelAdmin):
+    fields = ('author', 'content', 'created_at')
+    list_display =  ('author', 'content', 'created_at')
+    list_display_links = ('author', 'content')
+    search_fields = ('content',)
+    list_filter = ('author', 'content', 'created_at')
+    readonly_fields = ('created_at',)
+
+admin.site.register(Comment, CommentAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Post, PostAdmin)

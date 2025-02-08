@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
@@ -31,6 +32,20 @@ class Tag(models.Model):
         verbose_name_plural = 'Tags'
         ordering = ['pk']
 
+
+class Comment(models.Model):
+    author = models.ForeignKey(User, on_delete=models.PROTECT, related_name="comment_author")
+    content = models.CharField('Comment', max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.content
+
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comment'
+        ordering = ['pk']
+
 class Post(models.Model):
     title = models.CharField('Title', max_length=50)
     slug = models.CharField(verbose_name='post-url', max_length=50)
@@ -42,6 +57,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField('Image', upload_to='images/%Y/%m/%d', blank=True)
     views = models.IntegerField('Views', default=0)
+    comments = models.ManyToManyField(Comment, blank=True, related_name='post_comments')
 
     def __str__(self):
         return self.title
