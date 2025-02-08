@@ -28,7 +28,7 @@ class PostCategories(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['attached_post'] = get_latest_category_post(category_slug=self.kwargs['slug'])
+        context['post'] = get_latest_category_post(category_slug=self.kwargs['slug'])
         context['tags'] = get_all_tags()
 
         return context
@@ -44,8 +44,6 @@ class PostDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         post = self.object
-        # post.views = F('views') + 1
-        # self.object.refresh_from_db()
 
         context['posts'] = get_all_posts()
         context['tags'] = post.tags.all()
