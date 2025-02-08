@@ -30,7 +30,7 @@
 
 
 :root {
-  --primary: #ff0000;
+  --primary: #ffae1f;
 }
 
 .wrapper {
@@ -119,6 +119,8 @@
     text-transform: uppercase;
     padding: 0 10px;
 
+
+
     @media (min-width: 991px) {
         font-size: 12px;
         padding: 20px 40px;
@@ -175,10 +177,12 @@
     text-transform: uppercase;
     margin: 0;
 
+    
     @media (min-width: 550px) {
         font-size: 20px;
     }
 
+    
     @media (min-width: 1200px) {
         font-size: 50px;
     }
@@ -223,6 +227,7 @@ section.blog-post-area .big-text {
         width: 50%;
     }
 }
+
 
 section.blog-post-area img {
     width: 100%;
@@ -403,9 +408,9 @@ section.blog-post-area h4 span.author-name {
 }
 
 .blog-post-area .pegination .nav-links .page-numbers {
-    border: 1px solid #448aff;
+    border: 1px solid var(--primary);
     border-radius: 50%;
-    color: #448aff;
+    color: var(--primary);
     display: inline-block;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
@@ -419,7 +424,7 @@ section.blog-post-area h4 span.author-name {
 }
 
 .blog-post-area .pegination .nav-links .arrow {
-  border: 0px solid #448aff;
+  border: 0px solid var(--primary);
   height: 30px;
   width: 30px;
   line-height: 30px;
@@ -430,12 +435,12 @@ section.blog-post-area h4 span.author-name {
 }
 
 .blog-post-area .pegination .nav-links .page-numbers.current {
-    background: #448aff;
+    background: var(--primary);
     color: #fff;
 }
 
 .blog-post-area .pegination .nav-links .page-numbers:hover {
-    background: #448aff;
+    background: var(--primary);
     color: #fff;
 }
 
@@ -607,15 +612,13 @@ section.blog-post-area h4 span.author-name {
 
 .single-blog-area .ads-area {
     border-top: 1px solid #e6e6e6;
-    margin-top: 30px;
-    padding: 50px 0;
     position: relative;
 }
 
 .single-blog-area .ads-area img {
     width: 100%;
-    height: 90px;
     padding: 0 60px;
+    transform: scale(0.8);
 }
 
 .single-blog-area .ads-area p {
@@ -928,10 +931,12 @@ section.blog-post-area h4 span.author-name {
         color: var(--primary)
     }
 
+    
     @media (min-width: 1200px) {
         display: flex;
     }
 }
+
 
 .user-log-mob {
     box-sizing: border-box;

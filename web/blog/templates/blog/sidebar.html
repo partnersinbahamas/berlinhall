@@ -18,10 +18,9 @@
         </div>
         {% endfor %}
     </div>
-    <div class="sidebar-ads">
-        <img src="{% static 'img/sidebar-ads.jpg' %}" alt="">
-        <p>Place For Your <br> Ad Banner</p>
-    </div>
+
+    {% include 'inc/linkedin-banner.html' %}
+
     <div class="tags">
         <h2 class="sidebar-title">Tags</h2>
         {% for tag in tags %}

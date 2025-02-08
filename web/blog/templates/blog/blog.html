@@ -21,11 +21,8 @@
                         <img src="{{ post.image.url }}" alt="">
                         <p>{{ post.content|safe }}</p>
                     </div>
-                    <div class="ads-area">
-                        <img src="{% static 'img/ads.jpg' %}" alt="">
-                        <p>Your Ad Banner Goes Here</p>
-                    </div>
 
+                    {% include 'inc/github-banner.html' %}
                     {% include 'blog/comments.html' %}
 
                     <form action="#" method="get">
