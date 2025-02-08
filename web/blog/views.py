@@ -1,7 +1,8 @@
 from django.db.models.query import QuerySet
-from django.views.generic import ListView
-from .templatetags.blog_tags import get_latest_post, get_latest_category_post, posts_by_category, get_all_tags
+from django.views.generic import ListView, DetailView
+from .templatetags.blog_tags import get_latest_post, get_latest_category_post, posts_by_category, get_all_tags, get_post_by_slug, get_all_posts
 from .models import Post
+from django.db.models import F
 
 # Create your views here.
 
@@ -35,3 +36,27 @@ class PostCategories(ListView):
     
     def get_queryset(self):
         return posts_by_category(category_slug=self.kwargs['slug']).select_related('category')
+
+class PostDetail(DetailView):
+    model = Post
+    template_name = 'blog/single_post.html'
+    context_object_name = 'post'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = self.object
+        # post.views = F('views') + 1
+        self.object.refresh_from_db()
+
+        context['posts'] = get_all_posts()
+        context['tags'] = post.tags.all()
+
+        return context
+
+    def get_object(self, queryset=None):
+        post = super().get_object(queryset)
+
+        Post.objects.filter(pk=post.pk).update(views = F('views') + 1)
+        post.refresh_from_db(fields=['views'])
+
+        return post
