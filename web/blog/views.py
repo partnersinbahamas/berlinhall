@@ -1,6 +1,6 @@
 from django.db.models.query import QuerySet
 from django.views.generic import ListView
-from .templatetags.blog_tags import get_latest_post, get_latest_category_post, posts_by_category
+from .templatetags.blog_tags import get_latest_post, get_latest_category_post, posts_by_category, get_all_tags
 from .models import Post
 
 # Create your views here.
@@ -29,6 +29,7 @@ class PostCategories(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['attached_post'] = get_latest_category_post(category_slug=self.kwargs['slug'])
+        context['tags'] = get_all_tags()
 
         return context
     

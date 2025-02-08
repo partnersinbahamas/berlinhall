@@ -1,7 +1,7 @@
 from django import template
 
 register = template.Library()
-from ..models import Category, Post
+from ..models import Category, Post, Tag
 
 @register.inclusion_tag('inc/_nav.html')
 def show_categories():
@@ -21,4 +21,8 @@ def get_latest_category_post(category_slug):
 @register.simple_tag()
 def posts_by_category(category_slug):
     return Post.objects.filter(category__slug=category_slug)
+
+@register.simple_tag()
+def get_all_tags():
+    return Tag.objects.all()
 
