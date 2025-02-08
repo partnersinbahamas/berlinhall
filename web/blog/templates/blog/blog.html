@@ -14,7 +14,10 @@
                 <div class="col-md-8">
                 <div class="blog-area">
                     <div class="blog-area-part">
-                        <h2>{{ attached_post.title }}</h2>
+                        <div class="single_head">
+                            <h2>{{ attached_post.title }}</h2>
+                            <span class="single_views">Seen: {{ attached_post.views }}</span>
+                        </div>
                         <img src="{{ attached_post.image.url }}" alt="">
                         <p>{{ attached_post.content|safe }}</p>
                     </div>

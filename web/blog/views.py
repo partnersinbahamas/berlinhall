@@ -20,7 +20,6 @@ class Home(ListView):
         context['tab_title'] = 'Home'
         context['attached_post'] = get_latest_post()
         return context
-    
 
 class PostCategories(ListView):
     model = Post
@@ -46,7 +45,7 @@ class PostDetail(DetailView):
         context = super().get_context_data(**kwargs)
         post = self.object
         # post.views = F('views') + 1
-        self.object.refresh_from_db()
+        # self.object.refresh_from_db()
 
         context['posts'] = get_all_posts()
         context['tags'] = post.tags.all()
