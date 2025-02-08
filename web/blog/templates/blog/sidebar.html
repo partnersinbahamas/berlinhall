@@ -12,7 +12,7 @@
         <div class="portfolio-item recent" style="position: absolute; left: 0px; top: 0px;">
             <img src="{{ post.image.url }}" alt="{{ post.title }} photo">
             <div class="portfolio-text">
-                <h5><a href="#">{{ post.title }}</a></h5>
+                <h5><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
                 <p>By {{ post.author.username }} <span>|</span>{{ post.updated_at|date:"d F Y" }}</p>
             </div>
         </div>
