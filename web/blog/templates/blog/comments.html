@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="commententries">
+    <h3>Comments</h3>
+
+    <ul class="commentlist">
+        {% for comment in post.comments.all %}
+            <li>
+                <article class="comment">
+                    <header class="comment-author">
+                        <img src="{% static 'img/user-icon.jpg' %}" alt="User {{ comment.author.username }}">
+                    </header>
+                    <section class="comment-details">
+                        <div class="author-name">
+                            <h5>{{ comment.author.username }}</h5>
+                            <p>{{ comment.created_at|date:"F d Y" }}</p>
+                        </div>
+                        <div class="comment-body">
+                            <p>{{ comment.content }}</p>
+                        </div>
+                    </section>
+                </article>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
