@@ -1,11 +1,7 @@
 {% load static %}
 
 <div class="col-md-4">
-    <div class="button-group filters-button-group">
-        <button data-filter=".recent" class="button is-checked">Recent</button>
-        <button data-filter=".popular" class="button">popular</button>
-        <button data-filter=".users" class="button">Users</button>
-    </div>
+    <h2 class="sidebar-title">Posts</h2>
 
     <div class="grid" style="position: relative; height: 684px;">
         {% for post in posts %}
