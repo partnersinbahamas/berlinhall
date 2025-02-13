@@ -37,3 +37,11 @@ def get_all_posts():
 def get_latest_tag_post(tag_slug):
     return Post.objects.filter(tags__slug=tag_slug).latest('created_at')
 
+@register.simple_tag()
+def get_posts_by_search(term):
+    return Post.objects.filter(title__icontains=term)
+
+@register.simple_tag()
+def get_post_by_search_latest(term):
+    return Post.objects.filter(title__icontains=term).latest('created_at')
+
