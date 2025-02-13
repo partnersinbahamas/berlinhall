@@ -1,6 +1,5 @@
-from django.db.models.query import QuerySet
 from django.views.generic import ListView, DetailView
-from .templatetags.blog_tags import get_latest_post, get_latest_category_post, posts_by_category, get_all_tags, get_post_by_slug, get_all_posts, get_latest_tag_post
+from .templatetags.blog_tags import *
 from .models import Post
 from django.db.models import F
 
@@ -72,3 +71,21 @@ class PostTags(ListView):
 
     def get_queryset(self):
         return Post.objects.filter(tags__slug=self.kwargs['slug']).prefetch_related('tags')
+
+class SearchPost(ListView):
+    model = Post
+    template_name = 'blog/blog.html'
+    context_object_name = 'posts'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        post = get_post_by_search_latest(self.request.GET.get('search'))
+
+        context['post'] = post
+        context['tags'] = post.tags.all()
+
+        return context
+
+    def get_queryset(self):
+        return get_posts_by_search(term=self.request.GET.get('search'))
