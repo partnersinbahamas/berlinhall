@@ -896,7 +896,7 @@ section.blog-post-area h4 span.author-name {
 .single-blog-area .newsletter form {
     margin: 30px 0 0;
 }
-.single-blog-area .newsletter input[type="email"] {
+.single-blog-area .newsletter input[type="text"] {
     width: 50%;
     margin-right: 20px;
 }
